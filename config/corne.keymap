@@ -10,18 +10,18 @@
 
 &mt { flavor = "tap-preferred"; };
 
-macros {
-        CAPTURE: CAPTURE {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press &kp LCTRL &kp LGUI &kp LSHFT>,
-                <&macro_tap &kp N4>,
-                <&macro_release &kp LCTRL &kp LGUI &kp LSHFT>;
-        };
-}
-
 / {
+        macros {
+                CAPTURE: CAPTURE {
+                    compatible = "zmk,behavior-macro";
+                    #binding-cells = <0>;
+                    bindings =
+                        <&macro_press &kp LCTRL &kp LGUI &kp LSHFT>,
+                        <&macro_tap &kp N4>,
+                        <&macro_release &kp LCTRL &kp LGUI &kp LSHFT>;
+                };
+        }
+
         keymap {
                 compatible = "zmk,keymap";
 
