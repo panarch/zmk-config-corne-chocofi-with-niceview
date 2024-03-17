@@ -20,7 +20,7 @@
                         <&macro_tap &kp N4>,
                         <&macro_release &kp LCTRL &kp LGUI &kp LSHFT>;
                 };
-        }
+        };
 
         keymap {
                 compatible = "zmk,keymap";
