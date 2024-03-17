@@ -44,6 +44,69 @@
                     #binding-cells = <0>;
                     bindings = <&macro_tap &kp N3 &kp K>;
                 };
+
+                ctrl_tab_l: ctrl_tab_l {
+                    compatible = "zmk,behavior-macro";
+                    #binding-cells = <0>;
+                    bindings =
+                        <&macro_press &kp LSHFT &kp LCTRL>,
+                        <&macro_tap &kp TAB>,
+                        <&macro_release &kp LSHFT &kp LCTRL>;
+                };
+
+                ctrl_tab_r: ctrl_tab_r {
+                    compatible = "zmk,behavior-macro";
+                    #binding-cells = <0>;
+                    bindings =
+                        <&macro_press &kp LCTRL>,
+                        <&macro_tap &kp TAB>,
+                        <&macro_release &kp LCTRL>;
+                };
+
+                lock_scr: lock_scr {
+                    compatible = "zmk,behavior-macro";
+                    #binding-cells = <0>;
+                    bindings =
+                        <&macro_press &kp LCTRL &kp LGUI>,
+                        <&macro_tap &kp Q>,
+                        <&macro_release &kp LCTRL &kp LGUI>;
+                };
+
+                l_tab: l_tab {
+                    compatible = "zmk,behavior-macro";
+                    #binding-cells = <0>;
+                    bindings =
+                        <&macro_press &kp LSHFT &kp LGUI>,
+                        <&macro_tap &kp LBKT>,
+                        <&macro_release &kp LSHFT &kp LGUI>;
+                };
+
+                r_tab: r_tab {
+                    compatible = "zmk,behavior-macro";
+                    #binding-cells = <0>;
+                    bindings =
+                        <&macro_press &kp LSHFT &kp LGUI>,
+                        <&macro_tap &kp RBKT>,
+                        <&macro_release &kp LSHFT &kp LGUI>;
+                };
+
+                l_scr: l_scr {
+                    compatible = "zmk,behavior-macro";
+                    #binding-cells = <0>;
+                    bindings =
+                        <&macro_press &kp LCTRL>,
+                        <&macro_tap &kp LEFT>,
+                        <&macro_release &kp LCTRL>;
+                };
+
+                r_scr: r_scr {
+                    compatible = "zmk,behavior-macro";
+                    #binding-cells = <0>;
+                    bindings =
+                        <&macro_press &kp LCTRL>,
+                        <&macro_tap &kp RIGHT>,
+                        <&macro_release &kp LCTRL>;
+                };
         };
 
         keymap {
@@ -64,41 +127,41 @@
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// |  1   |  2      |  3     |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
-// |      |  3k     |  11k   | 11j |  3j |   | LFT | DWN |  UP | RGT |     |
-// | SHFT | CAPTURE |        |     |     |   |     |     |     |     |     |
-//                  |    GUI |     | SPC |   | ENT |     | ALT |
+// |  1   |  2      |  3          |  4          |  5  |   |  6   |  7        |  8      |  9  |  0  |
+// |      |  3k     | &11k        | &11j        |  3j |   | LFT  | DWN       |  UP     | RGT |     |
+// | SHFT | CAPTURE | &ctrl_tab_l | &ctrl_tab_r |     |   | HOME | PAGE_DOWN | PAGE_UP | END |     |
+//                  |    GUI      |             | SPC |   | ENT  |           | ALT     |
                          bindings = <
-   &kp A &kp N1     &kp N2    &kp N3    &kp N4    &kp N5         &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp A
-   &kp A &trans     &vim_3k   &vim_11k  &vim_11j  &vim_3j        &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &kp A
-   &kp A &kp LSHFT  &CAPTURE  &trans    &trans    &trans         &trans    &trans    &trans    &trans     &trans  &kp A
-                              &kp LGUI  &trans    &kp SPACE      &kp RET   &trans    &kp RALT
+   &kp A &kp N1     &kp N2    &kp N3      &kp N4      &kp N5         &kp N6    &kp N7        &kp N8    &kp N9     &kp N0  &kp A
+   &kp A &trans     &vim_3k   &vim_11k    &vim_11j    &vim_3j        &kp LEFT  &kp DOWN      &kp UP    &kp RIGHT  &trans  &kp A
+   &kp A &kp LSHFT  &CAPTURE  &ctrl_tab_l &ctrl_tab_r &trans         &kp HOME  &kp PAGE_DOWN &PAGE_UP  &kp END    &trans  &kp A
+                              &kp LGUI    &trans      &kp SPACE      &kp RET   &trans        &kp RALT
                         >;
                 };
 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
-// |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |
-// |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |
-// |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |
-//             | GUI |     | SPC |   | ENT |     | ALT |
+// |  !  |  @  |  #     |  $     |  %  |   |  ^  |  &  |  *  |  (  |  )  |
+// |     |     | &l_tab | &r_tab |     |   |  -  |  =  |  [  |  ]  |  \  |
+// |     |     | &l_scr | &r_scr |     |   |  _  |  +  |  {  |  }  | "|" |
+//             | GUI    |        | SPC |   | ENT |     | ALT |
                         bindings = <
    &kp A &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR &kp A
-   &kp A &trans    &trans  &trans    &trans    &trans      &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH &kp A
-   &kp A &trans    &trans  &trans    &trans    &trans      &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE &kp A
+   &kp A &trans    &trans  &l_tab    &r_tab    &trans      &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH &kp A
+   &kp A &trans    &trans  &l_scr    &r_scr    &trans      &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE &kp A
                            &kp LGUI  &trans    &kp SPACE   &kp RET    &trans     &kp RALT
                         >;
                 };
 
                 fj_layer {
 // -----------------------------------------------------------------------------------------
-// | TAB      | BT1 | BT2 | BT3 | BT4    |   |     |     |       |     |     |  BKSP   |
-// | CAPSLOCK |     |     |     | BT_CLR |   |     |     |  ESC  |     |     |  '      |
-// | LSHFT    |     |     |     |        |   |     |     |       |     |     |  RSHFT  |
-//                  | GUI |     | SPC    |   | ENT |     |  ALT  |
+// | TAB      | BT1 | BT2 | BT3 | BT4    |   |           |     |       |     |     |  BKSP   |
+// | CAPSLOCK |     |     |     | BT_CLR |   | &lock_scr |     |  ESC  |     |     |  '      |
+// | LSHFT    |     |     |     |        |   |           |     |       |     |     |  RSHFT  |
+//                  | GUI |     | SPC    |   | ENT       |     |  ALT  |
                         bindings = <
    &kp A &kp TAB       &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3      &trans    &trans    &trans     &trans    &kp BSPC    &kp A
-   &kp A &kp CAPSLOCK  &trans       &trans       &trans       &bt BT_CLR        &trans    &trans    &kp ESC    &trans    &kp SQT     &kp A
+   &kp A &kp CAPSLOCK  &trans       &trans       &trans       &bt BT_CLR        &lock_scr &trans    &kp ESC    &trans    &kp SQT     &kp A
    &kp A &kp LSHFT     &trans       &trans       &trans       &trans            &trans    &trans    &trans     &trans    &kp RSHFT   &kp A
                                     &kp LGUI     &trans       &kp SPACE         &kp RET   &trans    &kp RALT
                         >;
