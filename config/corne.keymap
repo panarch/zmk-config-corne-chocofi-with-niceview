@@ -24,25 +24,25 @@
                 vim_11j: vim_11j {
                     compatible = "zmk,behavior-macro";
                     #binding-cells = <0>;
-                    bindings = <&macro_tab &kp N1 &kp N1 &kp J>;
+                    bindings = <&macro_tap &kp N1 &kp N1 &kp J>;
                 };
 
                 vim_11k: vim_11k {
                     compatible = "zmk,behavior-macro";
                     #binding-cells = <0>;
-                    bindings = <&macro_tab &kp N1 &kp N1 &kp K>;
+                    bindings = <&macro_tap &kp N1 &kp N1 &kp K>;
                 };
 
                 vim_3j: vim_3j {
                     compatible = "zmk,behavior-macro";
                     #binding-cells = <0>;
-                    bindings = <&macro_tab &kp N3 &kp J>;
+                    bindings = <&macro_tap &kp N3 &kp J>;
                 };
 
                 vim_3k: vim_3k {
                     compatible = "zmk,behavior-macro";
                     #binding-cells = <0>;
-                    bindings = <&macro_tab &kp N3 &kp K>;
+                    bindings = <&macro_tap &kp N3 &kp K>;
                 };
         };
 
