@@ -55,18 +55,18 @@
                         >;
                 };
 
-                fj_layer {
+//                fj_layer {
 // -----------------------------------------------------------------------------------------
 // | TAB      |     |     |     |     |   |     |     |       |     |     |  BKSP   |
 // | CAPSLOCK |     |     |     |     |   |     |     |  ESC  |     |     |  '      |
 // | LSHFT    |     |     |     |     |   |     |     |       |     |     |  RSHFT  |
 //                  | GUI |     | SPC |   | ENT |     |  ALT  |
-                        bindings = <
-   &kp TAB       &trans  &trans    &trans   &trans      &trans    &trans    &trans     &trans    &kp BSPC
-   &kp CAPSLOCK  &trans  &trans    &trans   &trans      &trans    &trans    &kp ESC    &trans    &kp SQT
-   &kp LSHFT     &trans  &trans    &trans   &trans      &trans    &trans    &trans     &trans    &kp RSHFT
-                         &kp LGUI  &trans   &kp SPACE   &kp RET   &trans    &kp RALT
-                        >;
-                };
+//                        bindings = <
+//   &kp TAB       &trans  &trans    &trans   &trans      &trans    &trans    &trans     &trans    &kp BSPC
+//   &kp CAPSLOCK  &trans  &trans    &trans   &trans      &trans    &trans    &kp ESC    &trans    &kp SQT
+//   &kp LSHFT     &trans  &trans    &trans   &trans      &trans    &trans    &trans     &trans    &kp RSHFT
+//                         &kp LGUI  &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+//                        >;
+//               };
         };
 };
